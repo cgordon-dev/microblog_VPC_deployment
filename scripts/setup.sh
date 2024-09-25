@@ -1,14 +1,27 @@
 #!/bin/bash
 
-# Variables
-APP_SERVER_IP="10.0.2.110"
-APP_SERVER_USER="ubuntu"  # Replace with the username of your application server
-PRIVATE_KEY_PATH="~/.ssh/workload4.pem"  # Path to your SSH private key
-START_SCRIPT_PATH="/home/ubuntu/start_app.sh"   # Path to start_app.sh on the app server
+#Set environmental variables
+FILE_PATH="/home/ubuntu/start_app.sh"
+REPO_PATH="/home/ubuntu/microblog_VPC_deployment"
+SCRIPT_URL=""
+START_SCRIPT="source $DOWNLOAD_PATH"
 
-# SSH into the application server and run the existing start_app.sh script
-ssh -i $PRIVATE_KEY_PATH $APP_SERVER_USER@$APP_SERVER_IP "bash $START_SCRIPT_PATH"
+LOGIN_NAME="ubuntu"
+SSH_KEY="/home/ubuntu/.ssh/id_rsa.pem"
 
-# Display a message indicating the script has run
-echo "Successfully executed start_app.sh on the application server!"
+APPLICATION_SERVER_IP="$APPLICATION_SERVER_IP"
 
+echo "Begin SSH into the App Server..."
+
+# SSH command to application server
+ssh -i "$SSH_KEY" "$LOGIN_NAME@$APPLICATION_SERVER_IP" << EOF 2>/dev/null
+if [[ -d "$REPO_PATH" ]] && [[ -f "$FILE_PATH" ]]; then
+        echo "Repo and file already exist!"
+        echo "Deleting existing local repo and file."
+        rm -rf $REPO_PATH
+        rm $FILE_PATH
+        curl -L -o $FILE_PATH $SCRIPT_URL 2>/dev/null && chmod 755 $FILE_PATH && $START_SCRIPT
+else
+        curl -L -o $FILE_PATH $SCRIPT_URL 2>/dev/null && chmod 755 $FILE_PATH && $START_SCRIPT
+fi
+EOF       
