@@ -3,7 +3,7 @@
 #Set environmental variables
 FILE_PATH="/home/ubuntu/start_app.sh"
 REPO_PATH="/home/ubuntu/microblog_VPC_deployment"
-SCRIPT_URL=""
+SCRIPT_URL="https://raw.githubusercontent.com/cgordon-dev/microblog_VPC_deployment/refs/heads/main/scripts/start_app.sh"
 START_SCRIPT="source $DOWNLOAD_PATH"
 
 LOGIN_NAME="ubuntu"
