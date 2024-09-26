@@ -9,7 +9,7 @@ START_SCRIPT="source $DOWNLOAD_PATH"
 LOGIN_NAME="ubuntu"
 SSH_KEY="/home/ubuntu/.ssh/id_rsa.pem"
 
-APPLICATION_SERVER_IP="$APPLICATION_SERVER_IP"
+APPLICATION_SERVER_IP=$1
 
 echo "Begin SSH into the App Server..."
 
