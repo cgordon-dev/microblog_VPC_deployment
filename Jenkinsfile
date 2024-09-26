@@ -56,7 +56,7 @@ pipeline {
             steps {
                 sh '''#!/bin/bash
                 #Jenkins server should run the setup script in the web server via SSH Tunneling
-                ssh -i ~/.ssh/id_rsa.pem ubuntu@web-server-ip ./setup.sh
+                ssh -i /var/lib/jenkins/.ssh/id_rsa ubuntu@10.0.1.204 source /home/ubuntu/setup.sh
                 
                 '''
             }
