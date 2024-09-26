@@ -4,7 +4,7 @@
 FILE_PATH="/home/ubuntu/start_app.sh"
 REPO_PATH="/home/ubuntu/microblog_VPC_deployment"
 SCRIPT_URL="https://raw.githubusercontent.com/cgordon-dev/microblog_VPC_deployment/refs/heads/main/scripts/start_app.sh"
-START_SCRIPT="source $FILE_PATH"  # Fixed DOWNLOAD_PATH issue
+START_SCRIPT="source $FILE_PATH" 
 
 LOGIN_NAME="ubuntu"
 SSH_KEY="/home/ubuntu/.ssh/id_rsa.pem"
@@ -32,7 +32,7 @@ ssh -i "$SSH_KEY" "$LOGIN_NAME@$APPLICATION_SERVER_IP" << EOF
     fi
 EOF
 
-# Optional: Add error handling for the SSH command if needed
+#error handling to check if SSH command failed 
 if [ $? -ne 0 ]; then
     echo "Error: SSH command failed"
     exit 1
