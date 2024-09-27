@@ -143,6 +143,7 @@ The `Jenkinsfile` in this deployment defines a **Jenkins pipeline** that automat
    - This stage performs a security scan using OWASP Dependency Check:
      - It scans the project’s dependencies for known security vulnerabilities, disabling some irrelevant scans like Yarn and Node audits.
      - The scan results are stored in a report (`dependency-check-report.xml`) and published using `dependencyCheckPublisher`.
+     - I used the same NVD API key from the last workload, which did not throttle the API call, thus reducing the time spent on this stage of the pipeline.
 
 #### d. **Clean**:
    - This stage cleans up the environment:
