@@ -160,6 +160,7 @@ The `Jenkinsfile` in this deployment defines a **Jenkins pipeline** that automat
 ![pytest unit testing](/images/Test.jpg)
 ![OWASP DP-Check](/images/Scan.jpg)
 ![Pipeline](/images/Pipeline.jpg)
+Microblog-Signin-Page.png
 ### **Summary**:
 - **Build**: Sets up the Python environment and prepares the app.
 - **Test**: Runs unit tests and publishes results.
@@ -179,7 +180,7 @@ This pipeline ensures the app is built, tested, secured, cleaned up, and deploye
 
 ### 12. Setting Up MultiBranch Pipeline
 I created a MultiBranch Pipeline named `workload_4` in Jenkins and ran the build. I verified that the application is accessible via the Web Server's public IP. A MultiBranch Pipeline allows Jenkins to automatically detect and manage branches in the repository, facilitating parallel development and continuous integration across multiple features or releases.
-
+![Pipeline](/images/Microblog-Signin-Page.png)
 ### 13. Implementing Monitoring
 I launched an EC2 `t3.micro` instance named "Monitoring," installed Prometheus and Grafana, and configured them to collect metrics from the Application Server via node exporter broadcasting on custom TCP Port 9100, and configuring Prometheus to listen to that port. I then pass that data over to Grafana to visualize on a custom node exporter dashboard provided by the Grafana Dashboard gallery.
 ![Monitoring](/images/Monitoring.jpg)
