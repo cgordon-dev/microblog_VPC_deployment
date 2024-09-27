@@ -44,7 +44,7 @@ I installed NginX on the Web Server, modified the `sites-enabled/default` file t
 
 ### 9. Transferring Key Pair to Web Server
 I copied the Application Server's key pair to the Web Server using scp. An example of this command looks like this:
-`scp -i/path/to/.pemuser@publicIP: /source/path/destination/path`
+`scp -i/path/to/.pem user@publicIP: /source/path/destination/path`
 
 This facilitates secure SSH access from the Web Server to the Application Server, enabling seamless automated deployments and management.
 
@@ -155,7 +155,7 @@ The `Jenkinsfile` in this deployment defines a **Jenkins pipeline** that automat
      - The Jenkins server connects to the web server (at IP `10.0.1.204`) using SSH.
      - Once connected, it runs a setup script located on the remote machine (`/home/ubuntu/setup.sh`), passing an argument (`10.0.2.110`, the application server IP).
      - This setup script runs the (`/home/ubuntu/setup.sh`) starts the web application on the remote server.
-![System Design Diagram](/images/Build_Succesful.jpg)
+![System Design Diagram](/images/Build_Successful.jpg)
 ![pytest unit testing](/images/Test.jpg)
 ![OWASP DP-Check](/images/Scan.jpg)
 ![Pipeline](/images/Pipeline.jpg)
@@ -186,7 +186,7 @@ Monitoring tools provide visibility into system performance, enabling proactive 
 
 ## SYSTEM DESIGN DIAGRAM
 
-![System Design Diagram](/images/Diagram.jpg)
+![System Design Diagram](Diagram.jpg)
 
 This system diagram represents a deployment architecture for a Flask-based microblog application using AWS cloud infrastructure. Here's a summary of the components and how they interact:
 
