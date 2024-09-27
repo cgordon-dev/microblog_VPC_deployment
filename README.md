@@ -193,7 +193,7 @@ This system diagram represents a deployment architecture for a Flask-based micro
 
 ### 1. **AWS Cloud Setup**
    - **VPC (Virtual Private Cloud) Setup**:
-     - Two VPCs are used: the **Default VPC** and the **Microblog VPC**. Each VPC has its own CIDR block for defining its IP address range.
+     - Two VPCs are used: the **Default VPC`(CIDR 172.31.0.0/18)` ** and the **Microblog VPC`(CIDR 10.0.0.0/18)` **. Each VPC has its own CIDR block for defining its IP address range.
 
 ### 2. **Default VPC (us-east-1d)**:
    - Contains the **Jenkins Server** and the **Monitoring Server** in a public subnet.
